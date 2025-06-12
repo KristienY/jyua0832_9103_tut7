@@ -10,7 +10,7 @@ const numBins = 128;
 let shapes = [];//store all our custom circle objects
 
 function preload() {
-  song = loadSound('assets/788185__cvltiv8r__flute-beat-by-cvltiv8r-93bpm-30.wav');
+  song = loadSound('assets/802410__prazkhanalmusic__colors-dancehall-instrumental.mp3');
   //music from freemusic website
 }
 

@@ -35,6 +35,14 @@ For my individual piece, I combined the eye motif with music: the eye stands for
 
 Also, the eye graphic also conceals a cross—symbolizing multiculturalism and faith.
 
+### Music Choose
+ 
+ "Colors" is a vibrant Dancehall instrumental featuring tropical rhythms, catchy melodies, and an irresistible bouncy groove. This track brings the heat and fun of island life to every moment.
+ 
+ **The song gradually gets stronger, and the "breathing" of the graphic also gets bigger.**
+
+ In addition, the summer vibe and island style of this song are connect to the music style of the Philippines, where Pacita Abad is from.
+ 
 ### Differences from the Group Project
 
 1. Restoring the Spiral
