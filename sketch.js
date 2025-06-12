@@ -1,30 +1,32 @@
-let song;
-let fft;
-let amp1;      
-let button1;
+//Got inspiration from Week 12 Tutorial, Part 5 Controlling our shape class with FFT
+let song; //audio file
+let fft; //hold FFT object
+let amp1; //amplitude analyzer for overall volume
+let button1;//play/pause button
 
 const smoothing = 0.8;
 const numBins = 128;
 
-let shapes = [];
+let shapes = [];//store all our custom circle objects
 
 function preload() {
   song = loadSound('assets/788185__cvltiv8r__flute-beat-by-cvltiv8r-93bpm-30.wav');
+  //music from freemusic website
 }
 
 function setup() {
   const cnv = createCanvas(750, 500);
-  cnv.parent('canvas-container');
+  cnv.parent('canvas-container'); // puts inside the <div id="canvas-container">
 
   //FFT 
   fft = new p5.FFT(smoothing, numBins);
-  fft.setInput(song);
+  fft.setInput(song); // tell the FFT which sound to analyze
   amp1 = new p5.Amplitude();
-  amp1.setInput(song);
-  song.connect(fft);
-  song.connect(amp1);  
+  amp1.setInput(song);// volume tracker
+  song.connect(fft); //connect audio node to FFT
+  song.connect(amp1);   // connect it to amplitude node
   button1 = select('#play-pause');
-  button1.mousePressed(play_pause);
+  button1.mousePressed(play_pause); // grab that “🎵” button in the DOM and call play_pause() when it’s clicked
 
  
   // set up cora's color palette extracted from our reference first for future use
@@ -35,12 +37,14 @@ function setup() {
     "#FF3D00", "#FF4081", "#004D61", "#A67C52", "#E1BEE7", "#103A44"
   ];
 
+  // push into shapes
   // cora's circles
   shapes.push(new PatternedCircle(130, 250, 120, fullPalette));
   shapes.push(new PatternedCircle(670, 180, 50, fullPalette));
   shapes.push(new PatternedCircle(600, 300, 90, fullPalette.slice(8, 16)));
   shapes.push(new PatternedCircle(80, 400, 30, fullPalette.slice(8, 16)));
   shapes.push(new PatternedCircle(280, 310, 50, fullPalette.slice(8, 16)));
+  // I added more to strenghen visual
 
   // Kristien's circles
   shapes.push(new KristienSpiralCircle(350, 160, 200));
@@ -62,14 +66,14 @@ let circlecora1;
 let circlecora2;
 
 class PatternedCircle {
-  constructor(x, y, r, palette) {
+  constructor(x, y, r, palette) { //// store its center coordinates, radius, and which color palette to use
     this.x = x;             
     this.y = y;             
     this.r = r;             
     this.palette = palette; 
   }
 
-  display(scaleFactor) {
+  display(scaleFactor) { // // move to its position, scale by the audio amplitude, then draw it
     push();
     translate(this.x, this.y);
     scale(scaleFactor);
@@ -325,6 +329,7 @@ function drawMultiColorEyeball(cx, cy, maxRadius) {
 
 
 //Kristien Circle3 with eye
+//easy writing way for same circle but different size
 
 class KristienEyeCircle2 extends KristienEyeCircle1{
   display(scaleFactor) {
@@ -637,17 +642,17 @@ function drawCircleYin2(cx, cy, radius) {
 
 
 function draw() {
-  background(0)
+  background(0) //clear screen
 
-  let level = amp1.getLevel();
+  let level = amp1.getLevel(); //get current audoi volume
   let scaleFactor = map(level, 0, 1, 0.8, 1.3);
 
   for (let s of shapes) {
-    s.display(scaleFactor);
+    s.display(scaleFactor); // // draw every shape with that scale
   }
 }
 
-
+//Play/pause handler
 function play_pause() {
   if (song.isPlaying()) {
     song.stop();
@@ -659,6 +664,6 @@ function play_pause() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  button1.position();
+  button1.position(); //re-position the button if needed
 }
 
