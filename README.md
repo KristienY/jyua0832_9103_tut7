@@ -21,9 +21,9 @@ I used **audio** to control the animation. When the music plays, the small patte
  
  I also drew on **Harman Kardon | Aura Studio 4** , a bluetooth speaker with iconic transparent dome and themed lighting. That mix of sound, motion, and light is at the heart of my design.
 
- [Link Text](https://www.youtube.com/watch?v=p2iPgNiGnCk)
+ [Reference Youtube Video](https://www.youtube.com/watch?v=p2iPgNiGnCk)
 
- For sound coding, I got inspiration from Week 12 Tutorial, Part 5 Controlling our shape class with FFT
+ For sound coding, I got inspiration from **Week 12 Tutorial, Part 5 Controlling our shape class with FFT**
 
 ### Art Historical Connection
 
